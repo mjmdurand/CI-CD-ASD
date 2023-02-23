@@ -8,6 +8,7 @@ on:
       - closed
     branches:
       - main
+  workflow_dispatch:
     
 
 jobs:
@@ -44,3 +45,20 @@ jobs:
       - name: Previous job is done        
         run: |
           echo "le job précédent s'est terminé."
+
+
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: display pull_request message
+        if: ${{ github.event_name == 'workflow_dispatch'}}
+        run: |
+          echo "Job 1 lancé manuellement"
+
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Previous job is done        
+        run: |
+          echo "Job 2 lancé automatiquement"
