@@ -26,7 +26,7 @@ jobs:
       - name: display issue message
         if: ${{ github.event_name == 'issues' && github.event.action == 'opened' }}
         run: |
-          echo "une nouvelle issue a été crée ! (${{ github.event.issue.title }})"
+          echo "une nouvelle issue a été crée !"
 
 
   pull_request:
@@ -35,7 +35,7 @@ jobs:
       - name: display pull_request message
         if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' }}
         run: |
-          echo "une MR a été fermée (${{ github.event.pull_request.title }} )"
+          echo "une MR a été fermée."
 
   post_pull_request:
     needs: pull_request
