@@ -43,4 +43,4 @@ jobs:
     steps:
       - name: Previous job is done        
         run: |
-          echo 'le job précédent s'est terminé.'
+          echo 'le job précédent s\'est terminé.'
