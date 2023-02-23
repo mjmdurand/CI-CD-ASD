@@ -6,7 +6,7 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - name: display pull_request message
+      - name: display manual launch message
         if: ${{ github.event_name == 'workflow_dispatch'}}
         run: |
           echo "Job 1 lancé manuellement"
