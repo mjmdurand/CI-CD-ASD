@@ -1,5 +1,9 @@
 name: Push/Pull message
-on: [pull_request, push]
+on:
+  pull_request:
+    branches:
+      - main
+  push:
 env:
   PULL_MSG: pull detecte.
   PUSH_MSG: push detecte.
@@ -12,7 +16,6 @@ jobs:
       - name: detect trigger
         run: |
           echo "event name is:" ${{ github.event_name }}
-          echo "event type is:" ${{ github.event.action }}
 
       #- name: pull trigger
       #  if: ${{ github.event_name == 'pull_request' }}
