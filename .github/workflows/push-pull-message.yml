@@ -9,21 +9,10 @@ env:
   PUSH_MSG: push detecte.
 
 jobs:
-  display_push_message:
-    runs-on: ubuntu-latest
-    steps:
-      - name: detect trigger
-        run: |
-          echo "event name is:" ${{ github.event_name }}
-
-      - name: push trigger
-        if: ${{ github.event_name == 'push' }}
-        run: |
-          echo $PUSH_MSG
-
   display_pull_message:
     runs-on: ubuntu-latest
     steps:
+
       - name: detect trigger
         run: |
           echo "event name is:" ${{ github.event_name }}
@@ -32,3 +21,8 @@ jobs:
         if: ${{ github.event_name == 'pull_request' }}
         run: |
           echo $PULL_MSG
+
+      - name: push trigger
+        if: ${{ github.event_name == 'push' }}
+        run: |
+          echo $PUSH_MSG
