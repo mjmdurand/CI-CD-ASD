@@ -18,6 +18,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: display issue message
-        if: ${{ github.event_name == 'issue' && github.event.action == 'opened' }}
+        if: ${{ github.event_name == 'issues' && github.event.action == 'opened' }}
         run: |
           echo 'une nouvelle issue a été crée ! (${{ github.event.issue.title }})'
