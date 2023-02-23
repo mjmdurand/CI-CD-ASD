@@ -8,6 +8,11 @@ jobs:
   display_message:
     runs-on: ubuntu-latest
     steps:
+
+      - name: detect trigger
+        run: |
+          echo github.event_name
+          
       #- name: pull trigger
       #  if: ${{ github.event_name == 'pull_request' }}
       #  run: |
