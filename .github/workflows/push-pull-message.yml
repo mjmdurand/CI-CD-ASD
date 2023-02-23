@@ -1,0 +1,19 @@
+name: Push/Pull message
+on: [pull_request, push]
+env:
+  PULL_MSG: pull detecte.
+  PUSH_MSG: push detecte.
+
+jobs:
+  display_message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: pull trigger
+        if: ${{ github.event_name == pull_request }}
+        run: |
+          echo $PULL_MSG
+
+      - name: push trigger
+        if: ${{ github.event_name == push }}
+        run: |
+          echo $PUSH_MSG
