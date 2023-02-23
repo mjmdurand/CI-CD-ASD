@@ -4,5 +4,10 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: ./hello-world.sh
+      - name: copy repo files
+        uses: actions/checkout@v3
+
+      - name: execute script  
+        run: |
+          chmod +x ./hello-world.sh
+          ./hello-world.sh
