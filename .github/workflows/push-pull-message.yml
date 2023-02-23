@@ -12,7 +12,7 @@ jobs:
       - name: detect trigger
         run: |
           echo "event name is:" ${{ github.event_name }}
-          run: echo "event type is:" ${{ github.event.action }}
+          echo "event type is:" ${{ github.event.action }}
 
       #- name: pull trigger
       #  if: ${{ github.event_name == 'pull_request' }}
