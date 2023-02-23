@@ -38,19 +38,9 @@ jobs:
           echo 'une MR a été fermée (${{ github.event.pull_request.title }} )'
 
   post_pull_request:
+    needs: pull_request
     runs-on: ubuntu-latest
     steps:
-      - name: The job pull_request has succeeded
-        if: ${{ success(pull_request) }}
+      - name: Previous job is done        
         run: |
-          echo 'le job précédent s'est terminé correctement'
-
-      - name: The job pull_request failed
-        if: ${{ failure(pull_request) }}
-        run: |
-          echo 'le job précédent a échoué'
-
-      - name: The job pull_request has been skipped
-        if: ${{ cancelled(pull_request) }}
-        run: |
-          echo 'le job précédent a été ignoré'
+          echo 'le job précédent s'est terminé.'
