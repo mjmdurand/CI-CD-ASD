@@ -11,12 +11,9 @@ jobs:
       - name: Git checkout
         uses: actions/checkout@v3
 
-      - name: Initialize mandatory git config
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email noreply@github.com
-          
       - name: Create Issue Branch
         run: |
           git checkout -b support/${{ github.event.issue.title }}
           git push origin support/${{ github.event.issue.title }}
+        with:
+            repo-token: ${{ secrets.GITHUB_TOKEN }}
