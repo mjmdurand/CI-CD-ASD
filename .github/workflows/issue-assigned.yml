@@ -13,6 +13,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          branch: 'support/test'
+          branch: 'refs/heads/support/test'
 
 
