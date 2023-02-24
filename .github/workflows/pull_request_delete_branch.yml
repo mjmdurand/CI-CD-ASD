@@ -1,4 +1,4 @@
-name: issue assignated
+name: delete branch
 on:
   pull_request:
     types:
