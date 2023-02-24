@@ -1,6 +1,8 @@
 name: delete branch
 on:
-  push:
+  pull_request:
+    types:
+      - closed
     branches:
       - develop
 
@@ -8,4 +10,16 @@ jobs:
   debug:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ github.head_ref }}"
+      - run: echo "MR cloturée"
+#  create_issue_branch:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Git checkout
+#        uses: actions/checkout@v3
+#        with:
+#          ref: develop
+#      - name: delete Branch
+#        if:  startsWith(github.head_ref, 'features/')
+#        run: |
+#          git checkout -d ${{ github.head_ref }}
+#          git push origin --delete ${{ github.head_ref }}
