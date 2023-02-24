@@ -6,15 +6,18 @@ jobs:
   fruits:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: true
       matrix:
         couleur:
           - rouge
           - jaune
           - verte
+          - violet
         fruit:
           - pomme
           - poire
           - peche
+          - cerise
     steps:
       - name: display fruit full name
         run: echo ${{ matrix.fruit }} ${{ matrix.couleur }}
