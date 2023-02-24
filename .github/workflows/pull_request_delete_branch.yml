@@ -1,0 +1,21 @@
+name: issue assignated
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - develop
+
+jobs:
+  create_issue_branch:
+    if:  startsWith(github.head_ref, 'features/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v3
+        with:
+          ref: develop
+      - name: Create Issue Branch
+        run: |
+          git checkout -d ${{ github.head_ref }}
+          git push origin --delete ${{ github.head_ref }}
