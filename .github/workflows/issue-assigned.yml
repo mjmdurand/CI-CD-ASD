@@ -8,12 +8,14 @@ jobs:
   create_issue_branch:
     runs-on: ubuntu-latest
     steps:
+      - name: Git checkout
+        uses: actions/checkout@v3
+
       - name: Initialize mandatory git config
         run: |
           git config user.name "GitHub Actions"
           git config user.email noreply@github.com
-      - name: Git checkout
-        uses: actions/checkout@v3
+          
       - name: Create Issue Branch
         run: |
           git checkout -b support/${{ github.event.issue.title }}
