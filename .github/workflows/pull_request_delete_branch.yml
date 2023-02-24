@@ -1,21 +1,11 @@
 name: delete branch
 on:
-  pull_request:
-    types:
-      - closed
+  push:
     branches:
       - develop
 
 jobs:
-  create_issue_branch:
+  debug:
     runs-on: ubuntu-latest
     steps:
-      - name: Git checkout
-        uses: actions/checkout@v3
-        with:
-          ref: develop
-      - name: delete Branch
-        if:  startsWith(github.head_ref, 'features/')
-        run: |
-          git checkout -d ${{ github.head_ref }}
-          git push origin --delete ${{ github.head_ref }}
+      - run: echo "test
