@@ -16,5 +16,5 @@ jobs:
           - poire
           - peche
     steps:
-      - name: dislay fruit full name
+      - name: display fruit full name
         run: echo ${{ matrix.fruit }} ${{ matrix.couleur }}
