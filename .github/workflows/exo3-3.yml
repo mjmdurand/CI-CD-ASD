@@ -1,0 +1,16 @@
+name: Post MR closed
+on:
+  workflow_run:
+    workflows: 
+      - MR closed
+    types:
+      - completed
+
+jobs:
+  post_pull_request:
+    needs: pull_request
+    runs-on: ubuntu-latest
+    steps:
+      - name: Previous job is done        
+        run: |
+          echo "le job précédent s'est terminé."

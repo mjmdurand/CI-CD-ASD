@@ -1,0 +1,24 @@
+name: MR closed
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main    
+
+jobs:
+  display_trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: detect trigger
+        run: |
+          echo "event name is: ${{ github.event_name }}"
+          echo "event type is: ${{ github.event.action }}"
+
+  pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: display pull_request message
+        if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' }}
+        run: |
+          echo "une MR a été fermée."
