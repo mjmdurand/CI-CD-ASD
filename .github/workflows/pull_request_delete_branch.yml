@@ -7,7 +7,7 @@ on:
       - develop
 
 jobs:
-  create_issue_branch:
+  delete_branch:
     runs-on: ubuntu-latest
     steps:
       - name: Git checkout
