@@ -5,15 +5,12 @@ on:
       - assigned
 
 jobs:
-  create_issue_branch:
+  create_issue_branch_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Git checkout
-        uses: actions/checkout@v3
-
       - name: Create Issue Branch
-        run: |
-          git checkout -b support/${{ github.event.issue.title }}
-          git push origin support/${{ github.event.issue.title }}
-        with:
-            repo-token: ${{ secrets.GITHUB_TOKEN }}
+        uses: robvanderleek/create-issue-branch@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
