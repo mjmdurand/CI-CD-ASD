@@ -10,7 +10,7 @@ jobs:
   debug:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "MR cloturée"
+      - run: echo "MR cloturée (${{ github.head_ref }})"
   create_issue_branch:
     runs-on: ubuntu-latest
     steps:
