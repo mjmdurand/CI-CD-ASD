@@ -14,6 +14,5 @@ jobs:
           ref: develop
       - name: Create Issue Branch
         run: |
-          git branch -a
           git checkout -b support/${{ github.event.issue.number }}
           git push origin support/${{ github.event.issue.number }}
