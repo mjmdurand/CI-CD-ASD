@@ -21,5 +21,4 @@ jobs:
       - name: delete Branch
         if:  startsWith(github.head_ref, 'features/')
         run: |
-          git checkout -d ${{ github.head_ref }}
           git push origin --delete ${{ github.head_ref }}
