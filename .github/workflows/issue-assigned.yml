@@ -11,4 +11,5 @@ jobs:
       - name: Git checkout
         uses: actions/checkout@v3
       - name: Create Issue Branch
+        needs: Git checkout
         run: git checkout -b support/${{ github.event.issue.title }} && git push origin support/${{ github.event.issue.title }}
