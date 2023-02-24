@@ -1,0 +1,20 @@
+name: Matrix
+on:
+  workflow_dispatch:
+    
+jobs:
+  fruits:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        couleur:
+          - rouge
+          - jaune
+          - verte
+        fruit:
+          - pomme
+          - poire
+          - peche
+    steps:
+      - name: dislay fruit full name
+        run: echo ${{ matrix.fruit }} ${{ matrix.couleur }}
