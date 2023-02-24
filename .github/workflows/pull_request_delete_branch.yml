@@ -8,6 +8,7 @@ on:
 
 jobs:
   delete_branch:
+    if:  startsWith(github.head_ref, 'features/')
     runs-on: ubuntu-latest
     steps:
       - name: Git checkout
@@ -15,6 +16,5 @@ jobs:
         with:
           ref: develop
       - name: delete Branch
-        if:  startsWith(github.head_ref, 'features/')
         run: |
           git push origin --delete ${{ github.head_ref }}
